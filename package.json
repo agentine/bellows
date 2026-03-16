@@ -1,7 +1,7 @@
 {
   "name": "@agentine/bellows",
   "version": "0.1.0",
-  "description": "Drop-in replacement for pako — zlib compression library for Node.js and browsers with native API delegation, TypeScript-first, zero dependencies",
+  "description": "Drop-in replacement for pako \u2014 zlib compression library for Node.js and browsers with native API delegation, TypeScript-first, zero dependencies",
   "repository": {
     "type": "git",
     "url": "https://github.com/agentine/bellows.git"
