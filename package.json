@@ -1,0 +1,59 @@
+{
+  "name": "@agentine/bellows",
+  "version": "0.1.0",
+  "description": "Drop-in replacement for pako — zlib compression library for Node.js and browsers with native API delegation, TypeScript-first, zero dependencies",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agentine/bellows.git"
+  },
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "exports": {
+    ".": {
+      "node": {
+        "types": "./dist/esm/node/index.d.ts",
+        "import": "./dist/esm/node/index.js",
+        "require": "./dist/cjs/node/index.js"
+      },
+      "default": {
+        "types": "./dist/esm/browser/index.d.ts",
+        "import": "./dist/esm/browser/index.js",
+        "require": "./dist/cjs/browser/index.js"
+      }
+    },
+    "./compat/pako": {
+      "node": {
+        "types": "./dist/esm/compat/pako.d.ts",
+        "import": "./dist/esm/compat/pako.js",
+        "require": "./dist/cjs/compat/pako.js"
+      },
+      "default": {
+        "types": "./dist/esm/compat/pako.d.ts",
+        "import": "./dist/esm/compat/pako.js",
+        "require": "./dist/cjs/compat/pako.js"
+      }
+    }
+  },
+  "main": "./dist/cjs/node/index.js",
+  "module": "./dist/esm/node/index.js",
+  "types": "./dist/esm/node/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "npm run build:esm && npm run build:cjs && npm run build:cjs-pkg",
+    "build:esm": "tsc -p tsconfig.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:cjs-pkg": "echo '{\"type\":\"commonjs\"}' > dist/cjs/package.json",
+    "clean": "rm -rf dist",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.4.0",
+    "vitest": "^3.0.0"
+  }
+}
